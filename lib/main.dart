@@ -1,4 +1,5 @@
-import 'package:eamui/home.dart';
+import 'package:eamui/views/home_page/home.dart';
+import 'package:eamui/views/bottomnavigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return Sizer(
       builder: (context, orientation, deviceType) => AnnotatedRegion(
         value: const SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
           statusBarBrightness: Brightness.light,
           statusBarIconBrightness: Brightness.dark,
         ),
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "Inter",
             primaryColor: Colors.black,
           ),
-          home: const MyHomePage(),
+          home: const BottomNavItems(),
         ),
       ),
     );

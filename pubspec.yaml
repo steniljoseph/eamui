@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sizer: ^2.0.15
   iconsax: ^0.0.8
+  font_awesome_flutter: ^10.2.1
 
 dev_dependencies:
   flutter_test:
