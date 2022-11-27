@@ -1,6 +1,5 @@
 import 'package:eamui/views/home_page/home.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 
 class BottomNavItems extends StatefulWidget {
@@ -21,10 +20,10 @@ class _BottomNavItemsState extends State<BottomNavItems> {
   }
 
   final List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(),
-    Text("data"),
-    Text("data"),
-    Text("data")
+    const MyHomePage(),
+    const Text("data"),
+    const Text("data"),
+    const Text("data")
   ];
 
   @override
@@ -34,24 +33,33 @@ class _BottomNavItemsState extends State<BottomNavItems> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+            activeIcon: Icon(Iconsax.home5),
             icon: Icon(Iconsax.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            activeIcon: Icon(Iconsax.message5),
             icon: Icon(Iconsax.message),
             label: 'Messages',
           ),
           BottomNavigationBarItem(
+            activeIcon: Icon(Iconsax.notification5),
             icon: Icon(Iconsax.notification),
             label: 'Library',
           ),
           BottomNavigationBarItem(
+            activeIcon: Icon(Iconsax.people5),
             icon: Icon(Iconsax.people),
-            label: 'Library',
+            label: 'Crew',
           ),
         ],
         elevation: 0,
         currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        // fixedColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white54,
+        backgroundColor: Colors.black,
         // showSelectedLabels: false,
         // showUnselectedLabels: false,
         onTap: _onItemTapped,

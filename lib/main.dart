@@ -1,4 +1,3 @@
-import 'package:eamui/views/home_page/home.dart';
 import 'package:eamui/views/bottomnavigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

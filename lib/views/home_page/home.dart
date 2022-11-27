@@ -1,7 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
 
 import 'package:eamui/views/constants.dart';
-import 'package:eamui/views/home_page/widgets/custom_drawer_list.dart';
 import 'package:eamui/views/home_page/widgets/customcard.dart';
 import 'package:eamui/views/home_page/widgets/drawer_items.dart';
 import 'package:flutter/material.dart';
@@ -47,11 +46,10 @@ class MyHomePage extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintStyle: TextStyle(height: .4.h),
                                 hintText: "Search here....",
-                                prefixIcon: const Icon(Iconsax.search_normal_1,
-                                    color: Colors.black),
+                                prefixIcon:
+                                    const Icon(Iconsax.search_normal_1, color: Colors.black),
                                 suffixIcon: IconButton(
-                                  icon: const Icon(Iconsax.scanner,
-                                      color: Colors.black),
+                                  icon: const Icon(Iconsax.scanner, color: Colors.black),
                                   onPressed: () {},
                                 ),
                                 border: OutlineInputBorder(
@@ -174,18 +172,58 @@ class MyHomePage extends StatelessWidget {
                     color: Colors.grey[200],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              height: 5.h,
-                              width: 10.w,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue[200],
-                              ),
+                            Wrap(
+                              children: [
+                                Container(
+                                  height: 5.h,
+                                  width: 10.w,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.blue[200],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 200,
+                                  child: Column(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          "hu hhju  kj hahhahgkgkg  kha jbkj",
+                                          style: kTextStyle2,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                PopupMenuButton(
+                                  itemBuilder: (context) {
+                                    return const [
+                                      PopupMenuItem(
+                                        value: '/hello',
+                                        child: Text("Hello"),
+                                      ),
+                                      PopupMenuItem(
+                                        value: '/about',
+                                        child: Text("About"),
+                                      ),
+                                      PopupMenuItem(
+                                        value: '/contact',
+                                        child: Text("Contact"),
+                                      )
+                                    ];
+                                  },
+                                ),
+                              ],
                             )
                           ],
                         )
