@@ -2,6 +2,8 @@ import 'package:eamui/views/home_page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import 'message/message_screen.dart';
+
 class BottomNavItems extends StatefulWidget {
   const BottomNavItems({super.key});
 
@@ -21,7 +23,7 @@ class _BottomNavItemsState extends State<BottomNavItems> {
 
   final List<Widget> _widgetOptions = <Widget>[
     const MyHomePage(),
-    const Text("data"),
+    const MessageScreen(),
     const Text("data"),
     const Text("data")
   ];
@@ -45,7 +47,7 @@ class _BottomNavItemsState extends State<BottomNavItems> {
           BottomNavigationBarItem(
             activeIcon: Icon(Iconsax.notification5),
             icon: Icon(Iconsax.notification),
-            label: 'Library',
+            label: 'Notifications',
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(Iconsax.people5),
@@ -56,12 +58,9 @@ class _BottomNavItemsState extends State<BottomNavItems> {
         elevation: 0,
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
-        // fixedColor: Colors.black,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
         backgroundColor: Colors.black,
-        // showSelectedLabels: false,
-        // showUnselectedLabels: false,
         onTap: _onItemTapped,
       ),
     );

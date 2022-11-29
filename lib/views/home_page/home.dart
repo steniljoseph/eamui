@@ -1,11 +1,15 @@
 // ignore_for_file: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
 
+import 'dart:math';
+
 import 'package:eamui/views/constants.dart';
 import 'package:eamui/views/home_page/widgets/customcard.dart';
 import 'package:eamui/views/home_page/widgets/drawer_items.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
+
+import 'widgets/task_card.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -38,7 +42,6 @@ class MyHomePage extends StatelessWidget {
                             );
                           },
                         ),
-                        // kWidth,
                         Expanded(
                           child: SizedBox(
                             height: 6.h,
@@ -46,10 +49,11 @@ class MyHomePage extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintStyle: TextStyle(height: .4.h),
                                 hintText: "Search here....",
-                                prefixIcon:
-                                    const Icon(Iconsax.search_normal_1, color: Colors.black),
+                                prefixIcon: const Icon(Iconsax.search_normal_1,
+                                    color: Colors.black),
                                 suffixIcon: IconButton(
-                                  icon: const Icon(Iconsax.scanner, color: Colors.black),
+                                  icon: const Icon(Iconsax.scanner,
+                                      color: Colors.black),
                                   onPressed: () {},
                                 ),
                                 border: OutlineInputBorder(
@@ -94,7 +98,7 @@ class MyHomePage extends StatelessWidget {
                                     icon: const Icon(Iconsax.calendar_2),
                                   ),
                                 ),
-                                SizedBox(width: 2.h),
+                                kWidth2,
                                 Container(
                                   height: 5.h,
                                   width: 10.w,
@@ -104,7 +108,7 @@ class MyHomePage extends StatelessWidget {
                                     icon: const Icon(Iconsax.map),
                                   ),
                                 ),
-                                SizedBox(width: 2.h),
+                                kWidth2,
                                 Container(
                                   height: 5.h,
                                   width: 10.w,
@@ -139,9 +143,8 @@ class MyHomePage extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           itemCount: 10,
                           itemBuilder: (context, index) => const CustomCard(),
-                          separatorBuilder: (context, index) => SizedBox(
-                            width: 3.w,
-                          ),
+                          separatorBuilder: (context, index) =>
+                              SizedBox(width: 3.w),
                         ),
                       ),
                     ],
@@ -164,112 +167,26 @@ class MyHomePage extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 2.h, right: 2.h),
-                child: Container(
-                  height: 40.h,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[200],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Wrap(
-                              children: [
-                                Container(
-                                  height: 5.h,
-                                  width: 10.w,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.blue[200],
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 200,
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          "hu hhju  kj hahhahgkgkg  kha jbkj",
-                                          style: kTextStyle2,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                PopupMenuButton(
-                                  itemBuilder: (context) {
-                                    return const [
-                                      PopupMenuItem(
-                                        value: '/hello',
-                                        child: Text("Hello"),
-                                      ),
-                                      PopupMenuItem(
-                                        value: '/about',
-                                        child: Text("About"),
-                                      ),
-                                      PopupMenuItem(
-                                        value: '/contact',
-                                        child: Text("Contact"),
-                                      )
-                                    ];
-                                  },
-                                ),
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+                child: ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemBuilder: (context, index) => const TaskWidget(),
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2.h,
                   ),
                 ),
               )
             ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color.fromRGBO(40, 95, 231, 1),
+          child: const Icon(Iconsax.add),
+        ),
       ),
     );
   }
 }
-
-// Card(
-//   shape: RoundedRectangleBorder(
-//       side: const BorderSide(
-//         color: Colors.black12,
-//       ),
-//       borderRadius: BorderRadius.circular(5)),
-//   color: Colors.grey[200],
-//   child: Padding(
-//     padding: const EdgeInsets.all(8.0),
-//     child: Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         Container(
-//           decoration: const BoxDecoration(
-//             color: Colors.black,
-//             shape: BoxShape.circle,
-//           ),
-//           child: IconButton(
-//               color: Colors.white,
-//               onPressed: () {},
-//               icon: const Icon(Iconsax.calendar_2)),
-//         ),
-//         kHeight,
-//         Text("05", style: kTextStyle2),
-//         kHeight,
-//         Text(
-//           "Hi Jackson",
-//           style: kTextStyle2,
-//         )
-//       ],
-//     ),
-//   ),
-// ),
