@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
@@ -34,7 +33,7 @@ class CustomCrewTile extends StatelessWidget {
         trailing: Wrap(
           children: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Iconsax.call_calling,
               ),
               onPressed: () {},
@@ -50,8 +49,9 @@ class CustomCrewTile extends StatelessWidget {
                     value: '/hello',
                     child: Row(
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon(Iconsax.card)),
-                        Text("Email"),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Iconsax.card)),
+                        const Text("Email"),
                       ],
                     ),
                   ),
@@ -60,8 +60,9 @@ class CustomCrewTile extends StatelessWidget {
                     child: Row(
                       children: [
                         IconButton(
-                            onPressed: () {}, icon: Icon(Iconsax.message)),
-                        Text("Message"),
+                            onPressed: () {},
+                            icon: const Icon(Iconsax.message)),
+                        const Text("Message"),
                       ],
                     ),
                   )
