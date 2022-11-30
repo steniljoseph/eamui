@@ -18,7 +18,12 @@ class TaskWidget extends StatelessWidget {
         color: Colors.blueGrey[50],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.only(
+          left: 15,
+          top: 10,
+          bottom: 10,
+          right: 5,
+        ),
         child: Column(
           children: [
             Row(
@@ -38,21 +43,19 @@ class TaskWidget extends StatelessWidget {
                 ),
                 kWidth,
                 Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  child: Column(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 64.w,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 1.h),
-                          child: Text(
-                            "Machine Monthly Maintanance Checkup",
-                            maxLines: 2,
-                            style: TextStyle(
-                              overflow: TextOverflow.ellipsis,
-                              fontSize: 2.2.h,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        width: double.maxFinite,
+                        child: Text(
+                          "Machine Monthly Maintenance Checkup",
+                          maxLines: 2,
+                          style: TextStyle(
+                            overflow: TextOverflow.ellipsis,
+                            fontSize: 2.2.h,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -60,6 +63,7 @@ class TaskWidget extends StatelessWidget {
                   ),
                 ),
                 PopupMenuButton(
+                  padding: EdgeInsets.all(0),
                   itemBuilder: (context) {
                     return const [
                       PopupMenuItem(
@@ -76,7 +80,7 @@ class TaskWidget extends StatelessWidget {
                       )
                     ];
                   },
-                )
+                ),
               ],
             ),
             Padding(
@@ -89,12 +93,16 @@ class TaskWidget extends StatelessWidget {
                       Text(
                         "Monthly",
                         style: TextStyle(
-                            fontSize: 2.h, fontWeight: FontWeight.bold),
+                          fontSize: 2.h,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       kHeight,
                       Text(
                         "27 Jul 2022",
                         style: TextStyle(
+                            overflow: TextOverflow.ellipsis,
                             fontSize: 1.8.h,
                             fontWeight: FontWeight.bold,
                             color: Colors.grey[700]),
@@ -111,6 +119,7 @@ class TaskWidget extends StatelessWidget {
                           child: Text(
                             "Low",
                             style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),
                           ),
@@ -128,6 +137,7 @@ class TaskWidget extends StatelessWidget {
                             text: TextSpan(
                               text: "CA-CA1",
                               style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
                                 fontSize: 2.h,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -136,6 +146,7 @@ class TaskWidget extends StatelessWidget {
                                 TextSpan(
                                   text: " (Line 1)",
                                   style: TextStyle(
+                                    overflow: TextOverflow.ellipsis,
                                     fontWeight: FontWeight.normal,
                                   ),
                                 )
@@ -156,6 +167,7 @@ class TaskWidget extends StatelessWidget {
                             text: TextSpan(
                               text: "AFC-1097",
                               style: TextStyle(
+                                overflow: TextOverflow.ellipsis,
                                 fontSize: 2.h,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -164,6 +176,7 @@ class TaskWidget extends StatelessWidget {
                                 TextSpan(
                                   text: " (Z1 Areal feed 1)",
                                   style: TextStyle(
+                                    overflow: TextOverflow.ellipsis,
                                     fontWeight: FontWeight.normal,
                                   ),
                                 ),

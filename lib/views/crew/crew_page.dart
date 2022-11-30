@@ -1,13 +1,19 @@
 import 'package:eamui/views/constants.dart';
+import 'package:eamui/views/crew/widgets/custom_crew_tile.dart';
 import 'package:eamui/views/home_page/widgets/drawer_items.dart';
-import 'package:eamui/views/message/widget/custom_message_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
 
-class MessageScreen extends StatelessWidget {
-  const MessageScreen({super.key});
+class CrewPage extends StatefulWidget {
+  const CrewPage({super.key});
 
+  @override
+  State<CrewPage> createState() => _CrewPageState();
+}
+
+class _CrewPageState extends State<CrewPage> {
+  bool enable = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +43,7 @@ class MessageScreen extends StatelessWidget {
                         },
                       ),
                       Text(
-                        "Messages",
+                        "Crew",
                         style: kTextStyle2,
                       ),
                     ],
@@ -47,6 +53,7 @@ class MessageScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: 2.w, right: 2.w),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         height: 6.h,
@@ -57,7 +64,7 @@ class MessageScreen extends StatelessWidget {
                             floatingLabelBehavior: FloatingLabelBehavior.never,
                             // hintStyle: TextStyle(height: .4.h),
                             // hintText: "Search in messages",
-                            labelText: "Search in messages",
+                            labelText: "Search crew members",
                             labelStyle: TextStyle(
                               height: .4.h,
                               color: Colors.blueGrey,
@@ -72,10 +79,11 @@ class MessageScreen extends StatelessWidget {
                               borderSide: const BorderSide(color: Colors.black),
                             ),
                           ),
-                          // focusNode: FocusNode().addListener(() {}),
                         ),
                       ),
-                      kHeight2,
+                      kHeight,
+                      availableOfflineButtons(),
+                      kHeight,
                     ],
                   ),
                 ),
@@ -83,7 +91,7 @@ class MessageScreen extends StatelessWidget {
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
-                      return const CustomMessageTile();
+                      return const CustomCrewTile();
                     },
                     itemCount: 10,
                   ),
@@ -92,6 +100,71 @@ class MessageScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  availableOfflineButtons() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[100],
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
+      ),
+      child: Wrap(
+        alignment: WrapAlignment.start,
+        children: [
+          Container(
+            height: 35,
+            decoration: BoxDecoration(
+              color: enable == false ? Colors.black : Colors.grey[100],
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: TextButton(
+              onPressed: () {
+                if (enable == false) {
+                  enable = true;
+                } else {
+                  enable = false;
+                }
+                setState(() {});
+              },
+              child: Text(
+                'Avaialble',
+                style: TextStyle(
+                    color: enable == false ? Colors.white : Colors.grey),
+              ),
+            ),
+          ),
+          Container(
+            height: 35,
+            decoration: BoxDecoration(
+              color: enable == true ? Colors.black : Colors.grey[100],
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: TextButton(
+              onPressed: () {
+                if (enable == false) {
+                  enable = true;
+                } else {
+                  enable = false;
+                }
+                setState(() {});
+              },
+              child: Text(
+                'Offline',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: enable == true ? Colors.white : Colors.grey),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

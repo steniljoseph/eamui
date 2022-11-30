@@ -1,3 +1,4 @@
+import 'package:eamui/views/crew/crew_page.dart';
 import 'package:eamui/views/home_page/home.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,11 +22,11 @@ class _BottomNavItemsState extends State<BottomNavItems> {
     );
   }
 
-  final List<Widget> _widgetOptions = <Widget>[
+  final List _widgetOptions = [
     const MyHomePage(),
     const MessageScreen(),
     const Text("data"),
-    const Text("data")
+    const CrewPage(),
   ];
 
   @override
