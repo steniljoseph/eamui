@@ -145,13 +145,16 @@ class MyHomePage extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: ListView.separated(
+                          child: ListView.builder(
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             itemCount: 10,
-                            itemBuilder: (context, index) => const CustomCard(),
-                            separatorBuilder: (context, index) =>
+                            itemBuilder: (context, index) => Row(
+                              children: [
+                                const CustomCard(),
                                 SizedBox(width: 3.w),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -174,14 +177,18 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 3.w, right: 3.w),
-                  child: ListView.separated(
+                  child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     shrinkWrap: true,
                     itemCount: 5,
-                    itemBuilder: (context, index) => const TaskWidget(),
-                    separatorBuilder: (context, index) => SizedBox(
-                      height: 2.h,
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        const TaskWidget(),
+                        SizedBox(
+                          height: 2.h,
+                        ),
+                      ],
                     ),
                   ),
                 )
