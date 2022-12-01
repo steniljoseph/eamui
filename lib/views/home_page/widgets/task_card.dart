@@ -63,20 +63,23 @@ class TaskWidget extends StatelessWidget {
                   ),
                 ),
                 PopupMenuButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                   padding: EdgeInsets.all(0),
                   itemBuilder: (context) {
                     return const [
                       PopupMenuItem(
-                        value: '/hello',
-                        child: Text("Hello"),
+                        value: '/round',
+                        child: Text("Start Round"),
                       ),
                       PopupMenuItem(
-                        value: '/about',
-                        child: Text("About"),
+                        value: '/notification',
+                        child: Text("Create Notification"),
                       ),
                       PopupMenuItem(
-                        value: '/contact',
-                        child: Text("Contact"),
+                        value: '/details',
+                        child: Text("Details"),
                       )
                     ];
                   },

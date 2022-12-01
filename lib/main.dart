@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
-            fontFamily: "Inter",
+            fontFamily: "Roboto",
             primaryColor: Colors.black,
           ),
           home: const BottomNavItems(),

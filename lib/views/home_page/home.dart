@@ -1,7 +1,4 @@
 // ignore_for_file: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
-
-import 'dart:math';
-
 import 'package:eamui/views/constants.dart';
 import 'package:eamui/views/home_page/widgets/customcard.dart';
 import 'package:eamui/views/home_page/widgets/drawer_items.dart';
@@ -176,7 +173,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 2.h, right: 2.h),
+                  padding: EdgeInsets.only(left: 3.w, right: 3.w),
                   child: ListView.separated(
                     physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
