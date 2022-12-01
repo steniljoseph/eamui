@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'message/message_screen.dart';
+import 'notification/notification.dart';
 
 class BottomNavItems extends StatefulWidget {
   const BottomNavItems({super.key});
@@ -25,7 +26,7 @@ class _BottomNavItemsState extends State<BottomNavItems> {
   final List _widgetOptions = [
     const MyHomePage(),
     const MessageScreen(),
-    const Text("data"),
+    const NotificationScreen(),
     const CrewPage(),
   ];
 
