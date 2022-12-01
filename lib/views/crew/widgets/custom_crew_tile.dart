@@ -43,11 +43,16 @@ class CustomCrewTile extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16.0),
               ),
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.black,
+              ),
               itemBuilder: (context) {
                 return [
                   PopupMenuItem(
                     value: '/hello',
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
                             onPressed: () {}, icon: const Icon(Iconsax.card)),
@@ -58,6 +63,7 @@ class CustomCrewTile extends StatelessWidget {
                   PopupMenuItem(
                     value: '/about',
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         IconButton(
                             onPressed: () {},

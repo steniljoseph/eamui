@@ -13,7 +13,7 @@ class CrewPage extends StatefulWidget {
 }
 
 class _CrewPageState extends State<CrewPage> {
-  bool enable = false;
+  bool enable = true;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,9 +81,9 @@ class _CrewPageState extends State<CrewPage> {
                           ),
                         ),
                       ),
-                      kHeight,
+                      kHeight2,
                       availableOfflineButtons(),
-                      kHeight,
+                      kHeight2,
                     ],
                   ),
                 ),
@@ -107,7 +107,7 @@ class _CrewPageState extends State<CrewPage> {
   availableOfflineButtons() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: Colors.grey[200],
         borderRadius: const BorderRadius.all(
           Radius.circular(20),
         ),
@@ -118,7 +118,7 @@ class _CrewPageState extends State<CrewPage> {
           Container(
             height: 35,
             decoration: BoxDecoration(
-              color: enable == false ? Colors.black : Colors.grey[100],
+              color: enable ? Colors.black : Colors.grey[200],
               borderRadius: const BorderRadius.all(
                 Radius.circular(20),
               ),
@@ -134,15 +134,14 @@ class _CrewPageState extends State<CrewPage> {
               },
               child: Text(
                 'Avaialble',
-                style: TextStyle(
-                    color: enable == false ? Colors.white : Colors.grey),
+                style: TextStyle(color: enable ? Colors.white : Colors.grey),
               ),
             ),
           ),
           Container(
             height: 35,
             decoration: BoxDecoration(
-              color: enable == true ? Colors.black : Colors.grey[100],
+              color: enable ? Colors.grey[200] : Colors.black,
               borderRadius: const BorderRadius.all(
                 Radius.circular(20),
               ),
@@ -159,8 +158,7 @@ class _CrewPageState extends State<CrewPage> {
               child: Text(
                 'Offline',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: enable == true ? Colors.white : Colors.grey),
+                style: TextStyle(color: enable ? Colors.grey : Colors.white),
               ),
             ),
           ),
