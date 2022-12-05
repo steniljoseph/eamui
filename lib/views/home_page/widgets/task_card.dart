@@ -66,7 +66,7 @@ class TaskWidget extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   itemBuilder: (context) {
                     return const [
                       PopupMenuItem(
@@ -105,27 +105,39 @@ class TaskWidget extends StatelessWidget {
                       Text(
                         "27 Jul 2022",
                         style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 1.8.h,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[700]),
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 1.8.h,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700],
+                        ),
                       ),
                       kHeight2,
-                      Container(
-                        height: 3.5.h,
-                        width: 15.w,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(0, 188, 139, 1),
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Low",
-                            style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
+                      IntrinsicWidth(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Container(
+                              height: 3.5.h,
+                              decoration: BoxDecoration(
+                                color: const Color.fromRGBO(0, 188, 139, 1),
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Center(
+                                child: Padding(
+                                  padding:
+                                      EdgeInsets.only(left: 2.w, right: 2.w),
+                                  child: const Text(
+                                    "Low",
+                                    style: TextStyle(
+                                      overflow: TextOverflow.ellipsis,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       kHeight2,

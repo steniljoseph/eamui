@@ -1,10 +1,13 @@
 import 'package:eamui/views/constants.dart';
 import 'package:eamui/views/home_page/widgets/drawer_items.dart';
 import 'package:eamui/views/message/widget/custom_message_tile.dart';
+import 'package:eamui/views/notification/add_notification.dart';
 import 'package:eamui/views/notification/widgets/custom_notification_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sizer/sizer.dart';
+
+import 'addingnotificationsample.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -99,73 +102,19 @@ class NotificationScreen extends StatelessWidget {
                         child: Icon(Iconsax.align_vertically),
                       ),
                       kWidth,
-                      Container(
-                        height: 4.5.h,
-                        width: 25.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Priority",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 2.h),
-                            ),
-                            Icon(
-                              Iconsax.arrow_down_1,
-                              size: 2.3.h,
-                            ),
-                          ],
-                        ),
+                      CustomFilterCard(
+                        filterText: "Priority",
+                        onTap: () {},
                       ),
                       kWidth,
-                      Container(
-                        height: 4.5.h,
-                        width: 35.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Work Center",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 2.h),
-                            ),
-                            Icon(
-                              Iconsax.arrow_down_1,
-                              size: 2.3.h,
-                            ),
-                          ],
-                        ),
+                      CustomFilterCard(
+                        filterText: "Work Center",
+                        onTap: () {},
                       ),
                       kWidth,
-                      Container(
-                        height: 4.5.h,
-                        width: 38.w,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Notifications",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 2.h),
-                            ),
-                            Icon(
-                              Iconsax.arrow_down_1,
-                              size: 2.3.h,
-                            ),
-                          ],
-                        ),
+                      CustomFilterCard(
+                        filterText: "Notifications",
+                        onTap: () {},
                       ),
                       kWidth,
                     ],
@@ -192,6 +141,62 @@ class NotificationScreen extends StatelessWidget {
             ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Notificationn(
+                        callBackListener:
+                            (enabledFailureCard, enableFunctionCard) => false,
+                      )),
+            );
+          },
+          backgroundColor: const Color.fromRGBO(40, 95, 231, 1),
+          child: const Icon(Iconsax.add),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomFilterCard extends StatelessWidget {
+  final String filterText;
+  final VoidCallback onTap;
+  const CustomFilterCard(
+      {super.key, required this.filterText, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return IntrinsicWidth(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            height: 4.5.h,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(left: 3.w, right: 2.w),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    filterText,
+                    style:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 2.h),
+                  ),
+                  Icon(
+                    Iconsax.arrow_down_1,
+                    size: 2.3.h,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -11,9 +11,10 @@ class NotificationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 32.h,
+      height: 30.h,
       width: double.maxFinite,
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(10),
         color: Colors.blueGrey[50],
       ),
@@ -29,33 +30,16 @@ class NotificationCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 5.h,
-                  width: 8.w,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Color.fromRGBO(184, 176, 229, 1),
-                  ),
-                  child: Icon(
-                    Iconsax.task_square,
-                    size: 2.5.h,
-                  ),
-                ),
-                kWidth,
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: double.maxFinite,
-                        child: Text(
-                          "Machine Monthly Maintenance Checkup",
-                          maxLines: 2,
-                          style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 2.2.h,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      Text(
+                        "Broken Gears in the Production Maintenance",
+                        style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
+                          fontSize: 2.2.h,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -65,7 +49,7 @@ class NotificationCard extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0),
                   itemBuilder: (context) {
                     return const [
                       PopupMenuItem(
@@ -85,112 +69,120 @@ class NotificationCard extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 10.w, top: 1.5.h),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Monthly",
-                        style: TextStyle(
-                          fontSize: 2.h,
-                          fontWeight: FontWeight.bold,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+            Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "PM03 - Preventive Maintenance Order",
+                      style: TextStyle(
+                        fontSize: 2.h,
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      kHeight,
-                      Text(
-                        "27 Jul 2022",
-                        style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 1.8.h,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[700]),
+                    ),
+                    kHeight,
+                    Text(
+                      "27 Jul 2022",
+                      style: TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 1.8.h,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.grey[700],
                       ),
-                      kHeight2,
-                      Container(
-                        height: 3.5.h,
-                        width: 15.w,
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(0, 188, 139, 1),
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "Low",
-                            style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ),
-                      ),
-                      kHeight2,
-                      Row(
+                    ),
+                    kHeight2,
+                    IntrinsicWidth(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Icon(
-                            Iconsax.location,
-                            size: 2.5.h,
-                          ),
-                          kWidth,
-                          RichText(
-                            text: TextSpan(
-                              text: "CA-CA1",
-                              style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              children: const [
-                                TextSpan(
-                                  text: " (Line 1)",
-                                  style: TextStyle(
-                                    overflow: TextOverflow.ellipsis,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                )
-                              ],
+                          Container(
+                            height: 3.5.h,
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(242, 73, 73, 1),
+                              borderRadius: BorderRadius.circular(100),
                             ),
-                          ),
-                        ],
-                      ),
-                      kHeight,
-                      Row(
-                        children: [
-                          Icon(
-                            Iconsax.setting_2,
-                            size: 2.5.h,
-                          ),
-                          kWidth,
-                          RichText(
-                            text: TextSpan(
-                              text: "AFC-1097",
-                              style: TextStyle(
-                                overflow: TextOverflow.ellipsis,
-                                fontSize: 2.h,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              children: const [
-                                TextSpan(
-                                  text: " (Z1 Areal feed 1)",
+                            child: Center(
+                              child: Padding(
+                                padding: EdgeInsets.only(left: 2.w, right: 2.w),
+                                child: const Text(
+                                  "High",
                                   style: TextStyle(
                                     overflow: TextOverflow.ellipsis,
-                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                    kHeight2,
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.location,
+                          size: 2.5.h,
+                        ),
+                        kWidth,
+                        RichText(
+                          text: TextSpan(
+                            text: "CA-CA1",
+                            style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontSize: 2.h,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: const [
+                              TextSpan(
+                                text: " (Line 1)",
+                                style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    kHeight,
+                    Row(
+                      children: [
+                        Icon(
+                          Iconsax.setting_2,
+                          size: 2.5.h,
+                        ),
+                        kWidth,
+                        RichText(
+                          text: TextSpan(
+                            text: "AFC-1097",
+                            style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontSize: 2.h,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: const [
+                              TextSpan(
+                                text: " (Z1 Areal feed 1)",
+                                style: TextStyle(
+                                  overflow: TextOverflow.ellipsis,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             )
           ],
         ),
